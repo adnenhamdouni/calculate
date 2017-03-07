@@ -20,26 +20,26 @@ public class ExampleUnitTest {
 
     @Test
     public void testCheckNotMultipleThree() {
-        boolean result = checkMultiple(1823, 3);
-        assertFalse(result);
+        boolean rBresult = checkMultiple(1823, 3);
+        assertFalse(rBresult);
     }
 
     @Test
     public void testCheckMultipleFive() {
-        boolean result = checkMultiple(1825, 5);
-        assertTrue(result);
+        boolean rBresult = checkMultiple(1825, 5);
+        assertTrue(rBresult);
     }
 
     @Test
     public void testCheckNotMultipleFive() {
-        boolean result = checkMultiple(1824, 5);
-        assertFalse(result);
+        boolean rBresult = checkMultiple(1824, 5);
+        assertFalse(rBresult);
     }
 
     @Test
     public void testCalculate() {
-        String result = calculate(2, 22);
-        assert result.equals("H") || result.equals("S") || result.equals("i");
+        String rBresult = calculate(2, 22);
+        assert rBresult.equals("H") || rBresult.equals("S") || rBresult.equals("i");
     }
 
     private String calculate(int pIMin, int pIMax) {
@@ -65,12 +65,12 @@ public class ExampleUnitTest {
 
     }
 
-    private boolean checkMultiple(int number, int multip) {
-        boolean isMultip = false;
-        if (number % multip == 0) {
-            isMultip = true;
+    private boolean checkMultiple(int pInumber, int pImultip) {
+        boolean rBIsMultip = false;
+        if (pInumber % pImultip == 0) {
+            rBIsMultip = true;
         }
-        return isMultip;
+        return rBIsMultip;
     }
 
 }

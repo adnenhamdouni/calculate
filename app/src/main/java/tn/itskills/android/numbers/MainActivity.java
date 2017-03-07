@@ -52,12 +52,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private boolean checkMultiple(int number, int multip) {
-        boolean isMultip = false;
-        if (number % multip == 0) {
-            isMultip = true;
+    private boolean checkMultiple(int pInumber, int pImultip) {
+        boolean rBIsMultip = false;
+        if (pInumber % pImultip == 0) {
+            rBIsMultip = true;
         }
-        return isMultip;
+        return rBIsMultip;
     }
 
     @Override
