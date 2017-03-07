@@ -10,9 +10,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ResultFragment.OnResultListener{
 
     private EditText mIMinEditText, mIMaxEditText;
+    private ResultFragment mResultFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,19 +38,34 @@ public class MainActivity extends AppCompatActivity {
 
     private void calculate(int pIMin, int pIMax) {
 
+        String mResult = "";
+
         int i = pIMin;
         while (i < pIMax) {
             if (checkMultiple(i, 3)){
                 Log.i("TEST", "calculate: i = H");
+                mResult += "H \n";
             }
             if (checkMultiple(i, 5)){
                 Log.i("TEST", "calculate: i = S");
+                mResult += "S \n";
             }
             if (!checkMultiple(i, 3) && !checkMultiple(i, 5)) {
                 Log.i("TEST", "calculate: i = "+i);
+                mResult += i+" \n";
             }
+
             i++;
         }
+
+        showTemrOfUseDialog(mResult);
+    }
+
+    public void showTemrOfUseDialog(String pResult) {
+
+        mResultFragment = ResultFragment.newInstance(this, pResult);
+        mResultFragment.show(getFragmentManager(), "dialog");
+
     }
 
     private boolean checkMultiple(int pInumber, int pImultip) {
@@ -80,5 +96,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onAccept() {
+        mResultFragment.dismiss();
+
     }
 }
